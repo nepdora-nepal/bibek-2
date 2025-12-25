@@ -31,6 +31,7 @@ const HeroSection = () => {
           <div className="relative mt-12 lg:mt-0 flex justify-center lg:justify-end">
             <div className="w-full max-w-lg lg:max-w-none rounded-xl shadow-2xl overflow-hidden aspect-video relative group">
               <ImageWithFallback
+                id="hero"
                 src={images.hero}
                 fallbackSrc={images.hero}
                 alt="Modern business dashboard interface"
@@ -40,7 +41,7 @@ const HeroSection = () => {
                 className="object-cover rounded-xl transform transition-transform duration-500 ease-in-out group-hover:scale-105"
               />
               {/* Subtle glassmorphism overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-background/50 rounded-xl opacity-70 group-hover:opacity-80 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-background/50 rounded-xl opacity-70 group-hover:opacity-80 transition-opacity duration-300 pointer-events-none"></div>
             </div>
           </div>
         </div>
