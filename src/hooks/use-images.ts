@@ -9,15 +9,15 @@ export function useImages() {
     });
 }
 
-export function useUploadImage(onSuccess?: () => void) {
+export function useUploadImage(onSuccess?: (data: any, variables: File) => void) {
     const queryClient = useQueryClient();
 
     return useMutation({
         mutationFn: uploadImage,
-        onSuccess: () => {
+        onSuccess: (data, variables) => {
             queryClient.invalidateQueries({ queryKey: ["images"] });
             toast.success("Image uploaded successfully");
-            onSuccess?.();
+            onSuccess?.(data, variables);
         },
         onError: (error) => {
             toast.error(`Upload failed: ${error.message}`);

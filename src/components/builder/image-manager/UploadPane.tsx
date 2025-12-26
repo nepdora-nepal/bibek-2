@@ -4,7 +4,7 @@ import { Loader2, Upload } from "lucide-react";
 import { useUploadImage } from "@/hooks/use-images";
 
 interface UploadPaneProps {
-    onUploadSuccess: () => void;
+    onUploadSuccess: (data: any, file: File) => void;
 }
 
 export function UploadPane({ onUploadSuccess }: UploadPaneProps) {

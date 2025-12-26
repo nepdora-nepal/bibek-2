@@ -65,7 +65,12 @@ export function ImageManagerModal({ isOpen, onClose, onSelect, initialTab = "lib
 
                     <TabsContent value="upload" className="flex-1 min-h-0 overflow-hidden">
                         <UploadPane
-                            onUploadSuccess={() => setActiveTab("library")}
+                            onUploadSuccess={(_, file) => {
+                                // Auto-select the uploaded image
+                                // Assuming the key is the filename as per current behavior
+                                onSelect(file.name);
+                                onClose();
+                            }}
                         />
                     </TabsContent>
                 </Tabs>
